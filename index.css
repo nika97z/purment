@@ -25,6 +25,7 @@ ul {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  overflow: hidden;
 }
 .page1 .bar {
   position: absolute;
@@ -33,6 +34,8 @@ ul {
   font-family: "Roboto", sans-serif;
   font-size: 40px;
   color: black;
+  overflow: hidden;
+  animation: rig 2s ease-in-out 0.5s normal none;
 }
 
 header a {
@@ -48,6 +51,7 @@ header {
   position: fixed;
   width: 100%;
   z-index: 99;
+  overflow: hidden;
 }
 header .burger {
   display: none;
@@ -103,22 +107,37 @@ header .nav-links ul {
   gap: 30px;
   font-size: 25px;
 }
+header .purement-wrapper {
+  overflow: hidden;
+  width: -moz-fit-content;
+  width: fit-content;
+}
 header .purement {
   text-decoration: none;
   color: black;
   display: flex;
   font-family: "Roboto", sans-serif;
   font-size: 95px;
+  animation: rig 2s ease-in-out 0.5s normal none;
 }
 header .purement span {
   font-family: li;
   position: relative;
   top: -4px;
 }
+header .page1_ul-wrapper {
+  overflow: hidden;
+  display: inline-block;
+}
+header .page1_ul {
+  animation: lef 2s ease-in-out 0.5s normal none;
+  list-style: none;
+}
 header ul li a {
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   color: black;
+  animation: lef 2s ease-in-out 0.5s normal none;
 }
 header ul li a:hover {
   color: rgb(106, 106, 58);
@@ -821,6 +840,15 @@ header ul li a:hover {
     width: 40px;
     height: 40px;
   }
+  header .burger.active ul li.line1 {
+    transform: translateY(13.5px) rotate(45deg);
+  }
+  header .burger.active ul li.line2 {
+    opacity: 0;
+  }
+  header .burger.active ul li.line3 {
+    transform: translateY(-13.5px) rotate(-45deg);
+  }
   header .page1_ul {
     display: none;
   }
@@ -927,6 +955,22 @@ header ul li a:hover {
   .page6 .page6_1 .imageq {
     height: 25rem;
     width: 100%;
+  }
+}
+@keyframes rig {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes lef {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {

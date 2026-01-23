@@ -18,6 +18,7 @@
     
  }
 
+
 .page1{
     width: 100%;
     height: 120vh;
@@ -26,6 +27,7 @@
     background-repeat: no-repeat; 
     background-size: cover;
     background-attachment: fixed;
+    overflow: hidden;
     .bar{
         position: absolute;
         top: 200px;
@@ -33,6 +35,9 @@
         font-family: 'Roboto', sans-serif;
         font-size: 40px;
         color: black;
+        overflow: hidden;
+        animation: rig 2s ease-in-out 0.5s normal none;
+        
     }
     
 }
@@ -48,6 +53,7 @@ header{
         position: fixed;
         width: 100%;
         z-index: 99;
+        overflow: hidden;
         .burger{
             display: none;
             width: 60px;    
@@ -110,12 +116,17 @@ header{
             }
         }
         
+        .purement-wrapper{
+            overflow: hidden;
+            width: fit-content;
+        }
         .purement{
             text-decoration: none;
             color: black;
             display: flex;
             font-family: 'Roboto', sans-serif;
             font-size: 95px;
+            animation: rig 2s ease-in-out 0.5s normal none;
             span{
                 font-family: li;
                 position: relative;
@@ -123,17 +134,25 @@ header{
             }
         }
         
+        .page1_ul-wrapper{
+            overflow: hidden;
+            display: inline-block;
+        }
+        .page1_ul{
+            animation: lef 2s ease-in-out 0.5s normal none;
+            list-style: none;
+        }
         ul li a{
             font-family: 'Roboto', sans-serif;
             text-decoration: none;
             color: black;
+            animation: lef 2s ease-in-out 0.5s normal none;
         }
         ul li a:hover{
             color: rgb(106, 106, 58);
         }
-
-
-    }
+        
+}
 
 .page2{
     z-index: 4;
@@ -878,6 +897,19 @@ header{
             display: block;
             width: 40px;    
             height: 40px;
+            &.active {
+                ul {
+                    li.line1 {
+                        transform: translateY(13.5px) rotate(45deg);
+                    }
+                    li.line2 {
+                        opacity: 0;
+                    }
+                    li.line3 {
+                        transform: translateY(-13.5px) rotate(-45deg);
+                    }
+                }
+            }
         }
         .page1_ul {
             display: none;
@@ -1006,8 +1038,24 @@ header{
             }
         }
     }
+}
 
+@keyframes rig {
+    0% {
+        transform: translateX(-200px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 
+@keyframes lef {
+    0% {
+        transform: translateX(200px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
